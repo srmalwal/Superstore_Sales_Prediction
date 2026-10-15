@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    cursor: pointer;
+  }
+  
+  .marquee {
+    white-space: nowrap;
+    font-size: 10vw; 
+    font-weight: bold;
+    /* Pushes the text off the right side of the screen initially */
+    transform: translateX(100vw); 
+  }
+
+  .marquee.running {
+    animation: scroll 8s linear infinite;
+  }
+
+  @keyframes scroll {
+    0% { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
+  }
+</style>
+</head>
+<body>
+  <div class="marquee" id="marqueeText">2 Days To Go! </div>
+
+  <script>
+    document.body.addEventListener('click', function() {
+      document.getElementById('marqueeText').classList.add('running');
+    });
+  </script>
+</body>
+</html>
